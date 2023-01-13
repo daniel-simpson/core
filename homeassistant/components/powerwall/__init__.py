@@ -26,6 +26,7 @@ from homeassistant.util.network import is_ip_address
 
 from .const import (
     DOMAIN,
+    POWERWALL_API,
     POWERWALL_API_CHANGED,
     POWERWALL_COORDINATOR,
     POWERWALL_HTTP_SESSION,
@@ -171,6 +172,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     await coordinator.async_config_entry_first_refresh()
 
     runtime_data[POWERWALL_COORDINATOR] = coordinator
+    runtime_data[POWERWALL_API] = power_wall
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = runtime_data
 

@@ -3,7 +3,7 @@
   "name": "Tesla Powerwall",
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/powerwall",
-  "requirements": ["tesla-powerwall==0.3.18"],
+  "requirements": ["tesla-powerwall==0.3.18"], //TODO: bump this to get latest values once my PR is merged in
   "codeowners": ["@bdraco", "@jrester"],
   "dhcp": [
     {
