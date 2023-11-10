@@ -155,6 +155,16 @@ class TuyaVacuumEntity(TuyaEntity, StateVacuumEntity):
         if not (status := self.device.status.get(DPCode.STATUS)):
             return None
         return TUYA_STATUS_TO_HA.get(status)
+    
+    @property
+    def fault(self) -> str | None:
+        """Return Tuya vacuum fault message."""
+        fault_code = self.device.status.get(DPCode.FAULT)
+
+        if (fault_code == 0):
+            return None
+
+        return fault_code
 
     def turn_on(self, **kwargs: Any) -> None:
         """Turn the device on."""
